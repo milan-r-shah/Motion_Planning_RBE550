@@ -119,8 +119,9 @@ queue.append(currentNode)
 
 # Function for finding the final path from the visited nodes
 def findPath(v):
-    print("Number of visited Nodes: ", len(v))
-    finalPath = []      # A list of nodes corresponing to final path from
+    print("Number of visited Nodes: ", len(v))      # Will print the total number of
+                                                    # nodes traversed to reach the goal
+    finalPath = []      # A list of nodes corresponding to final path from
                         # the Start Node to Goal Node
     v.reverse()         # First reveres the list of visited nodes
                         # Then we will back track it to reach the start node
@@ -168,23 +169,38 @@ blueChannel = np.copy(gridImg)
 greenChannel = np.copy(gridImg)
 redChannel = np.copy(gridImg)
 
-for item in fpath:
-    redChannel[item] = 0
-    blueChannel[item] = 0
-
+# For the Start Node | will be displayed as Red Square/Pixel
 blueChannel[startNode] = 0
 redChannel[startNode] = 255
 greenChannel[startNode] = 0
 
+# For the Goal Node | will be displayed as Blue Square/Pixel
 blueChannel[goalNode] = 255
 greenChannel[goalNode] = 0
 redChannel[goalNode] = 0
 
+# Merging B, G, and R channel to generate a color image
 colorGrid = cv2.merge((blueChannel, greenChannel, redChannel))
 
-cv2.namedWindow('final', cv2.WINDOW_NORMAL)
+# Displaying an Initial Configuration before the traversal
+cv2.namedWindow('Initial Configuration', cv2.WINDOW_NORMAL)
 opWindowSize = 1000
-cv2.resizeWindow('final', opWindowSize, opWindowSize)
-cv2.imshow("final", colorGrid)
+cv2.resizeWindow('Initial Configuration', opWindowSize, opWindowSize)
+cv2.imshow("Initial Configuration", colorGrid)
+cv2.waitKey()
+
+# For the Final Path | will be displayed as Green
+for item in fpath[1:-1]:
+    redChannel[item] = 0
+    blueChannel[item] = 0
+
+colorGrid = cv2.merge((blueChannel, greenChannel, redChannel))
+
+# Displaying the Final Configuration after the traversal with the final path
+cv2.namedWindow('Final Configuration', cv2.WINDOW_NORMAL)
+opWindowSize = 1000
+cv2.resizeWindow('Final Configuration', opWindowSize, opWindowSize)
+cv2.imshow("Final Configuration", colorGrid)
 cv2.waitKey()
 cv2.destroyAllWindows()
+# ********************************************************************************************
