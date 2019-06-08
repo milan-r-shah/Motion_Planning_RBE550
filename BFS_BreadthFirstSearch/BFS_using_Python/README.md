@@ -2,7 +2,7 @@
 
 Initial Configuration for the First Obstacle Layout
 
-![Initial Configuration for the First Obstacle Layout](./docs/layout01_initial_config.png =500x515)
+![Initial Configuration for the First Obstacle Layout](./docs/layout01_initial_config.png)
 
 Final Configuration for the First Obstacle Layout after the traversal
 
