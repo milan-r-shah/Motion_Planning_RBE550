@@ -14,4 +14,4 @@ Initial Configuration for the Last Obstacle Layout (uncomment lines from 39 to 6
 
 Final Configuration for the Last Obstacle Layout after the traversal
 
-![Initial Configuration for the First Obstacle Layout](./docs/layout02_final_config.png =500x515)
+![Initial Configuration for the First Obstacle Layout](./docs/layout02_final_config.png )
